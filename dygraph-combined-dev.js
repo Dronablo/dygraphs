@@ -1731,7 +1731,7 @@ DygraphCanvasRenderer._fastCanvasProxy = function(context) {
   var addAction = function(action, x, y) {
     var rx = Math.round(x);
     if (lastRoundedX === null || rx != lastRoundedX) {
-      flushActions();
+      flushActions(rx - lastRoundedX>1);
       lastRoundedX = rx;
     }
     pendingActions.push([action, x, y]);
